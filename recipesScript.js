@@ -9,7 +9,7 @@ function filterRecipes(category) {
         }
     });
 
-    // Update active tab button style
+    
     document.querySelectorAll('.tabButton').forEach(button => button.classList.remove('active'));
     document.querySelector(`.tabButton[onclick="filterRecipes('${category}')"]`).classList.add('active');
 }
@@ -85,10 +85,10 @@ function addRecipe() {
         <p>${ingredients}</p>
     `;
 
-    // Append the content to the column
+   
     column.appendChild(content);
 
-    // Insert the new column at the start of the recipe list (to appear at the top)
+    
     document.querySelector(".row").prepend(column);
 
     // Create and add the popup for the new recipe
@@ -112,42 +112,6 @@ function addRecipe() {
     // Hide the form and reset it
     hideRecipeForm();
     document.getElementById("recipeForm").reset();
-}
-
-function addRecipe() {
-    const name = document.getElementById("recipeName").value;
-    const ingredients = document.getElementById("recipeIngredients").value;
-    const instructions = document.getElementById("recipeInstructions").value;
-    const tags = document.getElementById("recipeTags").value.split(',').map(tag => tag.trim());
-
-    const imageFile = document.getElementById("recipeImage").files[0];
-    const reader = new FileReader();
-
-    reader.onload = function (e) {
-        const imageUrl = e.target.result;
-
-        const newRecipe = {
-            name: name,
-            ingredients: ingredients,
-            instructions: instructions,
-            tags: tags,
-            imageUrl: imageUrl
-        };
-
-        // Save to localStorage
-        let recipes = JSON.parse(localStorage.getItem("recipes")) || [];
-        recipes.push(newRecipe);
-        localStorage.setItem("recipes", JSON.stringify(recipes));
-
-        // Display the recipe in the UI
-        displayRecipe(newRecipe);
-        hideRecipeForm();
-        document.getElementById("recipeForm").reset();
-    };
-
-    if (imageFile) {
-        reader.readAsDataURL(imageFile);
-    }
 }
 
 function addRecipe() {
