@@ -9,7 +9,7 @@ function filterRecipes(category) {
         }
     });
 
-    // Update active tab button style
+    
     document.querySelectorAll('.tabButton').forEach(button => button.classList.remove('active'));
     document.querySelector(`.tabButton[onclick="filterRecipes('${category}')"]`).classList.add('active');
 }
@@ -85,10 +85,10 @@ function addRecipe() {
         <p>${ingredients}</p>
     `;
 
-    // Append the content to the column
+   
     column.appendChild(content);
 
-    // Insert the new column at the start of the recipe list (to appear at the top)
+    
     document.querySelector(".row").prepend(column);
 
     // Create and add the popup for the new recipe
