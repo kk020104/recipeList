@@ -108,40 +108,6 @@ function addRecipe() {
     document.getElementById("recipeForm").reset();
 }
 
-function addRecipe() {
-    const name = document.getElementById("recipeName").value;
-    const ingredients = document.getElementById("recipeIngredients").value;
-    const instructions = document.getElementById("recipeInstructions").value;
-    const tags = document.getElementById("recipeTags").value.split(',').map(tag => tag.trim());
-
-    const imageFile = document.getElementById("recipeImage").files[0];
-    const reader = new FileReader();
-
-    reader.onload = function (e) {
-        const imageUrl = e.target.result;
-
-        const newRecipe = {
-            name: name,
-            ingredients: ingredients,
-            instructions: instructions,
-            tags: tags,
-            imageUrl: imageUrl
-        };
-
-        let recipes = JSON.parse(localStorage.getItem("recipes")) || [];
-        recipes.push(newRecipe);
-        localStorage.setItem("recipes", JSON.stringify(recipes));
-
-        displayRecipe(newRecipe);
-        hideRecipeForm();
-        document.getElementById("recipeForm").reset();
-    };
-
-    if (imageFile) {
-        reader.readAsDataURL(imageFile);
-    }
-}
-
 function displayRecipe(recipe) {
     const column = document.createElement("div");
     column.className = "column";
