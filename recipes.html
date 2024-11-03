@@ -16,47 +16,48 @@
 
     <center><input type="text" placeholder="Recipe..." id="itemInput">
         <input type="button" value="Search" id="searchButton">
-        <input type="button" value="+" id="addButton"></center>
+        <input type="button" value="+" id="addButton">
+    </center>
 
-        <div id="recipeFormPopup" class="popup">
-            <div class="popup-content">
-                <span class="close" onclick="hideRecipeForm()">&times;</span>
-                <h2>Add New Recipe</h2>
-                <form id="recipeForm">
-                    <label for="recipeName">Recipe Name:</label>
-                    <input type="text" id="recipeName" name="recipeName" required><br>
-        
-                    <label for="recipeIngredients">Ingredients:</label>
-                    <textarea id="recipeIngredients" name="recipeIngredients" required></textarea><br>
-        
-                    <label for="recipeInstructions">Instructions:</label>
-                    <textarea id="recipeInstructions" name="recipeInstructions" required></textarea><br>
-        
-                    <label for="recipeTags">Tags (e.g., Breakfast, Dinner):</label>
-                    <input type="text" id="recipeTags" name="recipeTags"><br>
-        
-                    <label for="recipeImage">Recipe Image:</label>
-                    <input type="file" id="recipeImage" name="recipeImage" accept="image/*" required><br>
-        
-                    <button type="button" onclick="addRecipe()">Add Recipe</button>
-                </form>
-            </div>
-        </div>
-        
+    <div id="recipeFormPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="hideRecipeForm()">&times;</span>
+            <h2>Add New Recipe</h2>
+            <form id="recipeForm">
+                <label for="recipeName">Recipe Name:</label>
+                <input type="text" id="recipeName" name="recipeName" required><br> <br>
 
-        <div class="tab">
-            <button class="tabButton" onclick="filterRecipes('all')">All</button>
-            <button class="tabButton" onclick="filterRecipes('Breakfast')">Breakfast</button>
-            <button class="tabButton" onclick="filterRecipes('Lunch')">Lunch</button>
-            <button class="tabButton" onclick="filterRecipes('Dinner')">Dinner</button>
+                <label for="recipeIngredients">Ingredients:</label>
+                <textarea id="recipeIngredients" name="recipeIngredients" required></textarea><br> <br>
+
+                <label for="recipeInstructions">Instructions:</label>
+                <textarea id="recipeInstructions" name="recipeInstructions" required></textarea><br> <br>
+
+                <label for="recipeTags">Tags (e.g., Breakfast, Dinner):</label>
+                <input type="text" id="recipeTags" name="recipeTags"><br> <br>
+
+                <label for="recipeImage">Recipe Image:</label>
+                <input type="file" id="recipeImage" name="recipeImage" accept="image/*" required><br> <br>
+
+                <button type="button" onclick="addRecipe()">Add Recipe</button>
+            </form>
         </div>
+    </div>
+
+
+    <div class="tab">
+        <button class="tabButton" onclick="filterRecipes('all')">All</button>
+        <button class="tabButton" onclick="filterRecipes('Breakfast')">Breakfast</button>
+        <button class="tabButton" onclick="filterRecipes('Lunch')">Lunch</button>
+        <button class="tabButton" onclick="filterRecipes('Dinner')">Dinner</button>
+    </div>
 
     <div class="row">
         <div class="column">
             <div class="content" data-category="Breakfast" onclick="showPopup('popupPancakes')">
-            <img src="food/Pancakes.jpg" alt="Pancakes" style="width:100%">
-            <h3>Pancakes</h3>
-            <p>Thick, fluffy, and all-around delicious pancakes.</p>
+                <img src="food/Pancakes.jpg" alt="Pancakes" style="width:100%">
+                <h3>Pancakes</h3>
+                <p>Thick, fluffy, and all-around delicious pancakes.</p>
             </div>
 
             <div id="popupPancakes" class="popup">
@@ -66,37 +67,57 @@
 
                     <h3>Dry Ingredients:</h3>
                     <ul>
-                        <li>1 cup all-purpose flour</li> <button onclick="addToShoppingFromRecipe('all-purpose flour', 32, 'oz')">Add to Shopping</button>
-                        <li>2 tablespoons sugar</li> <button onclick="addToShoppingFromRecipe('sugar', 1, 'lb')">Add to Shopping</button>
-                        <li>2 teaspoons baking powder</li> <button onclick="addToShoppingFromRecipe('baking powder', 10, 'oz')">Add to Shopping</button>
-                        <li>1/2 teaspoon baking soda</li> <button onclick="addToShoppingFromRecipe('baking soda', 1, 'lb')">Add to Shopping</button>
-                        <li>1/4 teaspoon salt</li> <button onclick="addToShoppingFromRecipe('salt', 10, 'oz')">Add to Shopping</button>
+                        <li>1 cup all-purpose flour</li> <button
+                            onclick="addToShoppingFromRecipe('all-purpose flour', 32, 'oz')">Add to Shopping</button>
+                        <li>2 tablespoons sugar</li> <button onclick="addToShoppingFromRecipe('sugar', 1, 'lb')">Add to
+                            Shopping</button>
+                        <li>2 teaspoons baking powder</li> <button
+                            onclick="addToShoppingFromRecipe('baking powder', 10, 'oz')">Add to Shopping</button>
+                        <li>1/2 teaspoon baking soda</li> <button
+                            onclick="addToShoppingFromRecipe('baking soda', 1, 'lb')">Add to Shopping</button>
+                        <li>1/4 teaspoon salt</li> <button onclick="addToShoppingFromRecipe('salt', 10, 'oz')">Add to
+                            Shopping</button>
                     </ul>
-                
+
                     <h3>Wet Ingredients:</h3>
                     <ul>
-                        <li>1 cup milk (whole, skim, or your favorite non-dairy milk)</li> <button onclick="addToShoppingFromRecipe('milk', 1, 'carton')">Add to Shopping</button>
-                        <li>1 large egg</li> <button onclick="addToShoppingFromRecipe('eggs', 1, 'dozen')">Add to Shopping</button>
-                        <li>2 tablespoons unsalted butter, melted (or vegetable oil)</li> <button onclick="addToShoppingFromRecipe('butter', 1, 'lb')">Add to Shopping</button>
-                        <li>1 teaspoon vanilla extract</li> <button onclick="addToShoppingFromRecipe('vanilla extract', 4, 'oz')">Add to Shopping</button>
+                        <li>1 cup milk (whole, skim, or your favorite non-dairy milk)</li> <button
+                            onclick="addToShoppingFromRecipe('milk', 1, 'carton')">Add to Shopping</button>
+                        <li>1 large egg</li> <button onclick="addToShoppingFromRecipe('eggs', 1, 'dozen')">Add to
+                            Shopping</button>
+                        <li>2 tablespoons unsalted butter, melted (or vegetable oil)</li> <button
+                            onclick="addToShoppingFromRecipe('butter', 1, 'lb')">Add to Shopping</button>
+                        <li>1 teaspoon vanilla extract</li> <button
+                            onclick="addToShoppingFromRecipe('vanilla extract', 4, 'oz')">Add to Shopping</button>
                     </ul>
-                
+
                     <h2>Instructions</h2>
                     <ol>
-                        <li><strong>Mix Dry Ingredients:</strong> In a large bowl, whisk together the flour, sugar, baking powder, baking soda, and salt until well combined.</li>
-                        <li><strong>Mix Wet Ingredients:</strong> In another bowl, combine the milk, egg, melted butter, and vanilla extract. Whisk until smooth.</li>
-                        <li><strong>Combine Mixtures:</strong> Pour the wet ingredients into the dry ingredients. Stir gently with a spatula or wooden spoon until just combined. Be careful not to overmix; some lumps are okay.</li>
-                        <li><strong>Heat the Pan:</strong> Preheat a non-stick skillet or griddle over medium heat. Lightly grease it with butter or oil.</li>
-                        <li><strong>Cook the Pancakes:</strong> Pour about 1/4 cup of batter for each pancake onto the skillet. Cook until bubbles form on the surface and the edges look set, about 2-3 minutes. Flip the pancakes and cook for another 1-2 minutes until golden brown and cooked through.</li>
-                        <li><strong>Serve:</strong> Serve warm with your favorite toppings, such as maple syrup, fresh fruit, whipped cream, or nuts.</li>
+                        <li><strong>Mix Dry Ingredients:</strong> In a large bowl, whisk together the flour, sugar,
+                            baking powder, baking soda, and salt until well combined.</li>
+                        <li><strong>Mix Wet Ingredients:</strong> In another bowl, combine the milk, egg, melted butter,
+                            and vanilla extract. Whisk until smooth.</li>
+                        <li><strong>Combine Mixtures:</strong> Pour the wet ingredients into the dry ingredients. Stir
+                            gently with a spatula or wooden spoon until just combined. Be careful not to overmix; some
+                            lumps are okay.</li>
+                        <li><strong>Heat the Pan:</strong> Preheat a non-stick skillet or griddle over medium heat.
+                            Lightly grease it with butter or oil.</li>
+                        <li><strong>Cook the Pancakes:</strong> Pour about 1/4 cup of batter for each pancake onto the
+                            skillet. Cook until bubbles form on the surface and the edges look set, about 2-3 minutes.
+                            Flip the pancakes and cook for another 1-2 minutes until golden brown and cooked through.
+                        </li>
+                        <li><strong>Serve:</strong> Serve warm with your favorite toppings, such as maple syrup, fresh
+                            fruit, whipped cream, or nuts.</li>
                     </ol>
-                
+
                     <div class="tip">
                         <h2>Tips</h2>
                         <ul>
-                            <li>For extra fluffy pancakes, let the batter rest for about 5-10 minutes before cooking.</li>
+                            <li>For extra fluffy pancakes, let the batter rest for about 5-10 minutes before cooking.
+                            </li>
                             <li>You can add blueberries, chocolate chips, or nuts to the batter for added flavor.</li>
-                            <li>If you have leftovers, store them in the refrigerator for up to 3 days or freeze them for later use.</li>
+                            <li>If you have leftovers, store them in the refrigerator for up to 3 days or freeze them
+                                for later use.</li>
                         </ul>
                     </div>
                 </div>
@@ -105,9 +126,9 @@
 
         <div class="column">
             <div class="content" data-category="Lunch" onclick="showPopup('popupBurritos')">
-            <img src="food/Burritos.jpg" alt="Burritos" style="width:100%">
-            <h3>Burritos</h3>
-            <p> Simple, super tasty everyday burritos</p>
+                <img src="food/Burritos.jpg" alt="Burritos" style="width:100%">
+                <h3>Burritos</h3>
+                <p> Simple, super tasty everyday burritos</p>
             </div>
 
             <div id="popupBurritos" class="popup">
@@ -117,28 +138,45 @@
 
                     <h3>Ingredients:</h3>
                     <ul>
-                        <li>4 large flour tortillas</li> <button onclick="addToShoppingFromRecipe('flour tortillas', 1, 'lb')">Add to Shopping</button>
-                        <li>1 can (15 oz) black beans, rinsed and drained</li> <button onclick="addToShoppingFromRecipe('black beans', 1, 'can')">Add to Shopping</button>
-                        <li>1 cup cooked rice (white or brown)</li> <button onclick="addToShoppingFromRecipe('rice', 2, 'lbs')">Add to Shopping</button>
-                        <li>1 cup shredded cheese (cheddar or Monterey Jack)</li> <button onclick="addToShoppingFromRecipe('shredded cheese', 8, 'oz')">Add to Shopping</button>
-                        <li>1 cup diced tomatoes</li> <button onclick="addToShoppingFromRecipe('tomatoes', 1, 'can')">Add to Shopping</button>
-                        <li>1/2 cup corn (canned or frozen)</li> <button onclick="addToShoppingFromRecipe('corn', 1, 'can')">Add to Shopping</button>
-                        <li>1 avocado, sliced</li> <button onclick="addToShoppingFromRecipe('avocado', 1, 'pc')">Add to Shopping</button>
-                        <li>1/4 cup fresh cilantro, chopped</li> <button onclick="addToShoppingFromRecipe('cilantro', 1, 'oz')">Add to Shopping</button>
-                        <li>1 lime, cut into wedges</li> <button onclick="addToShoppingFromRecipe('lime', 1, 'pc')">Add to Shopping</button>
-                        <li>Salt and pepper to taste</li> <button onclick="addToShoppingFromRecipe('salt and pepper', 5, 'oz')">Add to Shopping</button>
-                        <li>Optional: salsa, sour cream, or hot sauce for serving</li> <button onclick="addToShoppingFromRecipe('salsa, sour cream, or hot sauce', 16, 'oz')">Add to Shopping</button>
+                        <li>4 large flour tortillas</li> <button
+                            onclick="addToShoppingFromRecipe('flour tortillas', 1, 'lb')">Add to Shopping</button>
+                        <li>1 can (15 oz) black beans, rinsed and drained</li> <button
+                            onclick="addToShoppingFromRecipe('black beans', 1, 'can')">Add to Shopping</button>
+                        <li>1 cup cooked rice (white or brown)</li> <button
+                            onclick="addToShoppingFromRecipe('rice', 2, 'lbs')">Add to Shopping</button>
+                        <li>1 cup shredded cheese (cheddar or Monterey Jack)</li> <button
+                            onclick="addToShoppingFromRecipe('shredded cheese', 8, 'oz')">Add to Shopping</button>
+                        <li>1 cup diced tomatoes</li> <button
+                            onclick="addToShoppingFromRecipe('tomatoes', 1, 'can')">Add to Shopping</button>
+                        <li>1/2 cup corn (canned or frozen)</li> <button
+                            onclick="addToShoppingFromRecipe('corn', 1, 'can')">Add to Shopping</button>
+                        <li>1 avocado, sliced</li> <button onclick="addToShoppingFromRecipe('avocado', 1, 'pc')">Add to
+                            Shopping</button>
+                        <li>1/4 cup fresh cilantro, chopped</li> <button
+                            onclick="addToShoppingFromRecipe('cilantro', 1, 'oz')">Add to Shopping</button>
+                        <li>1 lime, cut into wedges</li> <button onclick="addToShoppingFromRecipe('lime', 1, 'pc')">Add
+                            to Shopping</button>
+                        <li>Salt and pepper to taste</li> <button
+                            onclick="addToShoppingFromRecipe('salt and pepper', 5, 'oz')">Add to Shopping</button>
+                        <li>Optional: salsa, sour cream, or hot sauce for serving</li> <button
+                            onclick="addToShoppingFromRecipe('salsa, sour cream, or hot sauce', 16, 'oz')">Add to
+                            Shopping</button>
                     </ul>
-                
+
                     <h3>Instructions:</h3>
                     <ol>
-                        <li><strong>Prepare the Filling:</strong> In a large bowl, combine black beans, cooked rice, diced tomatoes, corn, and half of the cheese. Season with salt and pepper.</li>
-                        <li><strong>Warm the Tortillas:</strong> Heat the flour tortillas in a skillet over medium heat for about 30 seconds on each side until warm.</li>
-                        <li><strong>Assemble the Burritos:</strong> On each tortilla, place a portion of the filling mixture, a few slices of avocado, cilantro, and the remaining cheese.</li>
-                        <li><strong>Wrap the Burritos:</strong> Fold in the sides of the tortilla and roll from the bottom to enclose the filling. Ensure it's tightly wrapped.</li>
-                        <li><strong>Serve:</strong> Serve the burritos warm with lime wedges and your choice of salsa, sour cream, or hot sauce.</li>
+                        <li><strong>Prepare the Filling:</strong> In a large bowl, combine black beans, cooked rice,
+                            diced tomatoes, corn, and half of the cheese. Season with salt and pepper.</li>
+                        <li><strong>Warm the Tortillas:</strong> Heat the flour tortillas in a skillet over medium heat
+                            for about 30 seconds on each side until warm.</li>
+                        <li><strong>Assemble the Burritos:</strong> On each tortilla, place a portion of the filling
+                            mixture, a few slices of avocado, cilantro, and the remaining cheese.</li>
+                        <li><strong>Wrap the Burritos:</strong> Fold in the sides of the tortilla and roll from the
+                            bottom to enclose the filling. Ensure it's tightly wrapped.</li>
+                        <li><strong>Serve:</strong> Serve the burritos warm with lime wedges and your choice of salsa,
+                            sour cream, or hot sauce.</li>
                     </ol>
-                
+
                     <div class="tip">
                         <h2>Tips:</h2>
                         <ul>
@@ -153,9 +191,9 @@
 
         <div class="column">
             <div class="content" data-category="Dinner" onclick="showPopup('popupSteak')">
-            <img src="food/Steak.jpg" alt="Steak" style="width:100%">
-            <h3>Steak</h3>
-            <p>Here's how to cook steak like a chef!</p>
+                <img src="food/Steak.jpg" alt="Steak" style="width:100%">
+                <h3>Steak</h3>
+                <p>Here's how to cook steak like a chef!</p>
             </div>
 
             <div id="popupSteak" class="popup">
@@ -164,25 +202,38 @@
                     <h2>Grilled Steak</h2>
                     <h3>Ingredients:</h3>
                     <ul>
-                        <li>2 ribeye or sirloin steaks (about 1-inch thick)</li> <button onclick="addToShoppingFromRecipe('ribeye or sirloin steaks', 2, 'pcs')">Add to Shopping</button>
-                        <li>2 tablespoons olive oil</li> <button onclick="addToShoppingFromRecipe('olive oil', 750, 'mL')">Add to Shopping</button>
-                        <li>2 cloves garlic, minced</li> <button onclick="addToShoppingFromRecipe('garlic', 2, 'pcs')">Add to Shopping</button>
-                        <li>1 teaspoon salt</li> <button onclick="addToShoppingFromRecipe('salt', 5, 'oz')">Add to Shopping</button>
-                        <li>1/2 teaspoon black pepper</li> <button onclick="addToShoppingFromRecipe('pepper', 5, 'oz')">Add to Shopping</button>
-                        <li>1 teaspoon dried rosemary (or fresh, chopped)</li> <button onclick="addToShoppingFromRecipe('rosemary', 1, 'oz')">Add to Shopping</button>
-                        <li>1 teaspoon dried thyme (or fresh, chopped)</li> <button onclick="addToShoppingFromRecipe('thyme', 1, 'oz')">Add to Shopping</button>
-                        <li>Optional: steak seasoning or marinade of your choice</li> <button onclick="addToShoppingFromRecipe('steak seasoning', 3, 'oz')">Add to Shopping</button>
+                        <li>2 ribeye or sirloin steaks (about 1-inch thick)</li> <button
+                            onclick="addToShoppingFromRecipe('ribeye or sirloin steaks', 2, 'pcs')">Add to
+                            Shopping</button>
+                        <li>2 tablespoons olive oil</li> <button
+                            onclick="addToShoppingFromRecipe('olive oil', 750, 'mL')">Add to Shopping</button>
+                        <li>2 cloves garlic, minced</li> <button
+                            onclick="addToShoppingFromRecipe('garlic', 2, 'pcs')">Add to Shopping</button>
+                        <li>1 teaspoon salt</li> <button onclick="addToShoppingFromRecipe('salt', 5, 'oz')">Add to
+                            Shopping</button>
+                        <li>1/2 teaspoon black pepper</li> <button
+                            onclick="addToShoppingFromRecipe('pepper', 5, 'oz')">Add to Shopping</button>
+                        <li>1 teaspoon dried rosemary (or fresh, chopped)</li> <button
+                            onclick="addToShoppingFromRecipe('rosemary', 1, 'oz')">Add to Shopping</button>
+                        <li>1 teaspoon dried thyme (or fresh, chopped)</li> <button
+                            onclick="addToShoppingFromRecipe('thyme', 1, 'oz')">Add to Shopping</button>
+                        <li>Optional: steak seasoning or marinade of your choice</li> <button
+                            onclick="addToShoppingFromRecipe('steak seasoning', 3, 'oz')">Add to Shopping</button>
                     </ul>
-                
+
                     <h3>Instructions:</h3>
                     <ol>
-                        <li><strong>Prepare the Steaks:</strong> Pat the steaks dry with paper towels and place them in a shallow dish.</li>
-                        <li><strong>Season:</strong> In a small bowl, mix olive oil, garlic, salt, pepper, rosemary, and thyme. Rub this mixture onto both sides of the steaks.</li>
+                        <li><strong>Prepare the Steaks:</strong> Pat the steaks dry with paper towels and place them in
+                            a shallow dish.</li>
+                        <li><strong>Season:</strong> In a small bowl, mix olive oil, garlic, salt, pepper, rosemary, and
+                            thyme. Rub this mixture onto both sides of the steaks.</li>
                         <li><strong>Preheat the Grill:</strong> Preheat your grill to medium-high heat.</li>
-                        <li><strong>Grill the Steaks:</strong> Place the steaks on the grill and cook for about 4-5 minutes on each side for medium-rare, or adjust time to your desired doneness.</li>
-                        <li><strong>Rest and Serve:</strong> Remove the steaks from the grill and let them rest for 5 minutes before slicing. Serve with your favorite sides.</li>
+                        <li><strong>Grill the Steaks:</strong> Place the steaks on the grill and cook for about 4-5
+                            minutes on each side for medium-rare, or adjust time to your desired doneness.</li>
+                        <li><strong>Rest and Serve:</strong> Remove the steaks from the grill and let them rest for 5
+                            minutes before slicing. Serve with your favorite sides.</li>
                     </ol>
-                
+
                     <div class="tip">
                         <h2>Tips:</h2>
                         <ul>
