@@ -3,12 +3,13 @@ function filterRecipes(category) {
     recipes.forEach(recipe => {
         const recipeCategories = recipe.getAttribute('data-category');
         if (category === 'all' || recipeCategories.includes(category)) {
-            recipe.parentElement.style.display = 'block'; 
+            recipe.parentElement.style.display = 'block'; // Show column
         } else {
-            recipe.parentElement.style.display = 'none'; 
+            recipe.parentElement.style.display = 'none'; // Hide column
         }
     });
 
+    // Update active tab button style
     document.querySelectorAll('.tabButton').forEach(button => button.classList.remove('active'));
     document.querySelector(`.tabButton[onclick="filterRecipes('${category}')"]`).classList.add('active');
 }
@@ -67,10 +68,11 @@ function addRecipe() {
     const ingredients = document.getElementById("recipeIngredients").value;
     const instructions = document.getElementById("recipeInstructions").value;
     const tags = document.getElementById("recipeTags").value.split(',').map(tag => tag.trim());
-    const imageUrl = document.getElementById("recipeImage").value || "food/default.jpg"; 
+    const imageUrl = document.getElementById("recipeImage").value || "food/default.jpg"; // Adjust path if needed
 
+    // Create the new recipe column and content structure
     const column = document.createElement("div");
-    column.className = "column"; 
+    column.className = "column"; // Use the same class as hardcoded recipes
 
     const content = document.createElement("div");
     content.className = "content";
@@ -83,10 +85,13 @@ function addRecipe() {
         <p>${ingredients}</p>
     `;
 
+    // Append the content to the column
     column.appendChild(content);
 
+    // Insert the new column at the start of the recipe list (to appear at the top)
     document.querySelector(".row").prepend(column);
 
+    // Create and add the popup for the new recipe
     const popup = document.createElement("div");
     popup.id = `popup${name.replace(/\s+/g, '')}`;
     popup.className = "popup";
@@ -104,10 +109,84 @@ function addRecipe() {
 
     document.body.appendChild(popup);
 
+    // Hide the form and reset it
     hideRecipeForm();
     document.getElementById("recipeForm").reset();
 }
 
+function addRecipe() {
+    const name = document.getElementById("recipeName").value;
+    const ingredients = document.getElementById("recipeIngredients").value;
+    const instructions = document.getElementById("recipeInstructions").value;
+    const tags = document.getElementById("recipeTags").value.split(',').map(tag => tag.trim());
+
+    const imageFile = document.getElementById("recipeImage").files[0];
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+        const imageUrl = e.target.result;
+
+        const newRecipe = {
+            name: name,
+            ingredients: ingredients,
+            instructions: instructions,
+            tags: tags,
+            imageUrl: imageUrl
+        };
+
+        // Save to localStorage
+        let recipes = JSON.parse(localStorage.getItem("recipes")) || [];
+        recipes.push(newRecipe);
+        localStorage.setItem("recipes", JSON.stringify(recipes));
+
+        // Display the recipe in the UI
+        displayRecipe(newRecipe);
+        hideRecipeForm();
+        document.getElementById("recipeForm").reset();
+    };
+
+    if (imageFile) {
+        reader.readAsDataURL(imageFile);
+    }
+}
+
+function addRecipe() {
+    const name = document.getElementById("recipeName").value;
+    const ingredients = document.getElementById("recipeIngredients").value;
+    const instructions = document.getElementById("recipeInstructions").value;
+    const tags = document.getElementById("recipeTags").value.split(',').map(tag => tag.trim());
+
+    const imageFile = document.getElementById("recipeImage").files[0];
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+        const imageUrl = e.target.result;
+
+        const newRecipe = {
+            name: name,
+            ingredients: ingredients,
+            instructions: instructions,
+            tags: tags,
+            imageUrl: imageUrl
+        };
+
+        // Save to localStorage
+        let recipes = JSON.parse(localStorage.getItem("recipes")) || [];
+        recipes.push(newRecipe);
+        localStorage.setItem("recipes", JSON.stringify(recipes));
+
+        // Display the recipe in the UI
+        displayRecipe(newRecipe);
+        hideRecipeForm();
+        document.getElementById("recipeForm").reset();
+    };
+
+    if (imageFile) {
+        reader.readAsDataURL(imageFile);
+    }
+}
+
+// Helper function to display a recipe in the UI
 function displayRecipe(recipe) {
     const column = document.createElement("div");
     column.className = "column";
@@ -150,3 +229,5 @@ function loadRecipes() {
 }
 
 window.onload = loadRecipes;
+
+
